@@ -6,7 +6,7 @@
 template<typename T>
 class Vector {
     T *values = nullptr;
-    int length{};
+    int length{0};
 public:
     Vector() = default;
     ~Vector(){
@@ -45,6 +45,13 @@ public:
         return length;
     }
 
+    int find(T val){
+        for (int i=0; i < length; i++){
+            if (values[i] == val) return i;
+        }
+        return -1;
+    }
+
     void append(T var) {
         values = static_cast<T*>(std::realloc(values, ++length * sizeof(T)));
         values[length - 1] = var;
@@ -71,6 +78,17 @@ public:
     bool is_empty(){
         return length == 0;
     }
+
+    bool operator==(Vector<T> op){
+        if(length != op.length) return false;
+
+        for(int i = 0; i < length; i++){
+            if (values[i] != op[i]) return false;
+        }
+        return true;
+    }
+
+
 
     template<typename V>
     friend std::ostream &operator<<(std::ostream &out, const Vector<V> &v);

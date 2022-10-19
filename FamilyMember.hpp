@@ -9,7 +9,7 @@ enum Gender{
     FEMALE
 };
 
-class FamilyMember : Person {
+class FamilyMember : public Person {
 private:
     FamilyMember *mother;
     FamilyMember *father;
@@ -25,7 +25,7 @@ public:
 
     FamilyMember(const FamilyMember &source);
 
-    FamilyMember(FamilyMember &&source);
+    FamilyMember(FamilyMember &&source) noexcept ;
 
     ~FamilyMember() = default;
 
@@ -40,10 +40,11 @@ public:
     void set_spouse(FamilyMember* person);
     void set_child(FamilyMember* person);
 
-    Person* get_father();
-    Person* get_mother();
-    Person* get_spouse();
-    Vector<Person*>& get_children();
+    FamilyMember* get_father();
+    FamilyMember* get_mother();
+    FamilyMember* get_spouse();
+    Gender get_gender();
+    Vector<FamilyMember*>& get_children();
 };
 
 #endif //LAB1_FAMILYMEMBER_HPP

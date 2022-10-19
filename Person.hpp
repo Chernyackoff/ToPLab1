@@ -18,7 +18,7 @@ public:
 
     Person(const Person &copy);
 
-    Person(Person &&source);
+    Person(Person &&source) noexcept;
 
     Person(std::string &nm, std::string &bd, int a);
 
