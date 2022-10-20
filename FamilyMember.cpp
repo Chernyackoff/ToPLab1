@@ -53,20 +53,26 @@ std::ostream &operator<<(std::ostream &stream, const FamilyMember &fm) {
 void FamilyMember::set_father(FamilyMember *person) {
     if (person->gender != MALE) throw GenderError();
     father = person;
+    person->set_child(this);
 }
 
 void FamilyMember::set_mother(FamilyMember *person) {
     if (person->gender != FEMALE) throw GenderError();
     mother = person;
+    person->set_child(this);
 }
 
 void FamilyMember::set_spouse(FamilyMember *person) {
     if(gender == person->gender) throw GenderError();
+    if(spouse == person) return;
     spouse = person;
+    person->spouse = this;
 }
 
 void FamilyMember::set_child(FamilyMember *person) {
     children.append(person);
+    if (gender == MALE) person->set_father(this);
+    else if(gender == FEMALE) person->set_mother(this);
 }
 
 FamilyMember *FamilyMember::get_father() {

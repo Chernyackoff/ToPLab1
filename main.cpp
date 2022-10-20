@@ -16,7 +16,8 @@ int main() {
                 ui.create_tree();
                 break;
             case 2:
-                ui.restore_tree();
+                std::cout << "Not implemented yet!" << std::endl;
+                //ui.restore_tree();
                 break;
             case 3:
                 return 0;

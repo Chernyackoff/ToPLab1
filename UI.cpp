@@ -91,10 +91,9 @@ void UI::save_tree() {
     std::string filename;
     std::cout << "Enter file name:" << std::endl;
     std::cin >> filename;
-    std::ofstream out("output.txt");
+    std::ofstream out(filename);
     auto members = tree->get_members();
-    std::string name, birth_date, death_date;
-    // Save all persons' data to file
+    std::string name, birth_date, death_date;    // Save all persons' data to file
     for (int i = 0; i < members.size(); i++) {
         name = members[i]->get_name();
         birth_date = members[i]->get_birth_date();
