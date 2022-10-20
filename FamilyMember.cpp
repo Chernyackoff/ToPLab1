@@ -89,5 +89,9 @@ Gender FamilyMember::get_gender() {
     return gender;
 }
 
+void FamilyMember::set_gender(Gender g) {
+    gender = g;
+}
+
 
 

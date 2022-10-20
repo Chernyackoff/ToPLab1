@@ -11,9 +11,9 @@ private:
 public:
     void create_tree();
 
-    void main();
-
     void restore_tree();
+
+    void main();
 
     void save_tree();
 

@@ -39,6 +39,7 @@ public:
     void set_mother(FamilyMember* person);
     void set_spouse(FamilyMember* person);
     void set_child(FamilyMember* person);
+    void set_gender(Gender g);
 
     FamilyMember* get_father();
     FamilyMember* get_mother();

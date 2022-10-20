@@ -8,17 +8,12 @@ class FamilyTree {
 private:
     std::string surname;
     Vector<FamilyMember *> members;
-    FamilyMember *root;
 public:
     FamilyTree() = default;
 
     ~FamilyTree() = default;
 
     explicit FamilyTree(std::string sn);
-
-    FamilyTree(std::string sn, FamilyMember *rt);
-
-    FamilyTree(FamilyMember *rt);
 
     FamilyTree(const FamilyTree &source);
 
@@ -34,11 +29,7 @@ public:
 
     Vector<FamilyMember *> &get_members();
 
-    void set_root(FamilyMember *person);
-
-    FamilyMember *get_root();
-
-    void append_family_member(FamilyMember* new_member)
+    void append_family_member(FamilyMember *new_member);
 };
 
 #endif //LAB1_FAMILYTREE_HPP
